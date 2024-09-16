@@ -1,19 +1,19 @@
 let display = document.getElementById("display");
 let currentInput = "";
-let isResultDisplayed = false; // Menandakan apakah hasil sudah ditampilkan
+let isResultDisplayed = false; 
 
 function appendNumber(number) {
     if (isResultDisplayed) {
-        clearDisplay(); // Bersihkan layar jika hasil sudah ditampilkan
+        clearDisplay(); 
     }
     currentInput += number;
     display.value = currentInput;
-    isResultDisplayed = false; // Reset flag karena sekarang input baru dimulai
+    isResultDisplayed = false; 
 }
 
 function appendOperator(operator) {
     if (isResultDisplayed) {
-        isResultDisplayed = false; // Jika operator ditekan setelah hasil, biarkan tetap tampil
+        isResultDisplayed = false; 
     }
     if (currentInput !== "" && !isNaN(currentInput[currentInput.length - 1])) {
         currentInput += operator;
@@ -24,7 +24,7 @@ function appendOperator(operator) {
 function clearDisplay() {
     currentInput = "";
     display.value = "";
-    isResultDisplayed = false; // Reset flag
+    isResultDisplayed = false; 
 }
 
 function deleteLast() {
@@ -43,7 +43,7 @@ function calculateResult() {
     try {
         currentInput = eval(currentInput).toString();
         display.value = currentInput;
-        isResultDisplayed = true; // Hasil sudah ditampilkan
+        isResultDisplayed = true; 
     } catch (error) {
         display.value = "Error";
     }
